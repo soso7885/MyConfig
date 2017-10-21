@@ -1,0 +1,132 @@
+" === use dark background ===
+set t_Co=256
+set bg=dark
+
+" === enable rower ===
+set cursorline
+
+" === use UTF-8 ===
+set enc=utf8
+set fileencodings=utf-8,cp950
+
+" === marked the keyword ===
+set hls
+
+" === in insert mode, disable mouse ===
+set mouse=nv
+
+" === display line number
+"set number
+
+" === ignore capital letter while searching ===
+set ic
+
+" === the indent tap ===
+set tabstop=4
+set shiftwidth=4
+
+" === disable auto-indent
+set noautoindent
+
+" === paste mode setting ===
+set pastetoggle=<F12>
+
+syntax on
+
+" === For vim folding ===
+set foldmarker={{{,}}}
+set foldmethod=marker
+set foldlevel=0
+let php_folding=1 
+set foldnestmax=3 
+
+" === For VIM in mac, let backspace can removing end-of-line ===
+set backspace=indent,eol,start
+
+set confirm
+set history=100
+set statusline=%4*%<\%m%<[%f\%r%h%w]\ [%{&ff},%{&fileencoding},%Y]%=\[Position=%l,%v,%p%%]
+colorscheme torte
+autocmd Filetype gitcommit setlocal spell textwidth=72
+
+set statusline+=%#warningmsg#
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
+" ==================================
+" ===                            ===
+" === Vundle plugin install tool ===
+" ===                            ===
+" ==================================
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" === set the runtime path to include Vundle and initialize ===
+set rtp+=~/.vim/bundle/Vundle.vim
+" =================== vundle pluging start ====================
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim' " the vundleVim manage itself
+
+" hint:
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+
+" === The airline plugin ===
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+" === The NERD tree plugin ===
+Plugin 'scrooloose/nerdtree'
+
+" === The taglist ===
+Plugin 'taglist.vim'
+
+call vundle#end()
+" ==================== vundle pluging end ======================
+" === reopen file type ===
+"filetype plugin indent on " if use this, will enable autoindent
+filetype on
+
+" === The TagList plugin on F9 ===
+map <f9> :Tlist<CR>
+
+" === TO_DO & FIX_ME list ===
+command Todo noautocmd vimgrep /TODO\|FIXME/j ** | cw
+
+" === The NERDtree plugin on F8 ===
+map <f8> :NERDTreeToggle<CR>
+
+" === set status line ===
+set laststatus=2
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" === unicode symbols ===
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_symbols.readonly = '⭤'
+let g:airline_symbols.linenr = '⭡'
+

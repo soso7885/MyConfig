@@ -1,0 +1,117 @@
+" === use dark background ===
+set t_Co=256
+set background=dark
+
+" === enable rower ===
+set cursorline
+
+" === use UTF-8 ===
+set enc=utf8
+set fileencodings=utf-8,cp950
+
+" === marked the keyword ===
+set hls
+
+" === in insert mode, disable mouse ===
+set mouse=nv
+
+" === display line number
+"set number
+
+" === ignore capital letter while searching ===
+set ic
+
+" === the indent tap ===
+set tabstop=4
+set shiftwidth=4
+
+" === disable auto-indent
+set noautoindent
+
+" === paste mode setting ===
+set pastetoggle=<F12>
+
+syntax on
+
+" === For vim folding ===
+set foldmarker={{{,}}}
+set foldmethod=marker
+set foldlevel=0
+let php_folding = 1 
+set foldnestmax=3 
+
+set confirm
+set history=100
+
+set statusline=%4*%<\%m%<[%f\%r%h%w]\ [%{&ff},%{&fileencoding},%Y]%=\[Position=%l,%v,%p%%]
+colorscheme torte
+autocmd Filetype gitcommit setlocal spell textwidth=72
+
+set statusline+=%#warningmsg#
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
+" ==================================
+" ===                            ===
+" === Vundle plugin install tool ===
+" ===                            ===
+" ==================================
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" === set the runtime path to include Vundle and initialize ===
+set rtp+=~/.vim/bundle/Vundle.vim
+" =================== vundle pluging start ====================
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim' " the vundleVim manage itself
+
+" hint:
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+
+" === The airline plugin ===
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+" === The NERD tree plugin ===
+Plugin 'scrooloose/nerdtree'
+
+" === The taglist ===
+Plugin 'taglist.vim'
+
+call vundle#end()
+" ==================== vundle pluging end --====================
+" === reopen file type ===
+"filetype plugin indent on " if use this, will enable autoindent
+filetype on
+
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just
+" :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to
+" auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+" === For airline font ===
+"set laststatus=2
+" === enable powerline-fonts ===
+"let g:airline_powerline_fonts = 1
+
+" === The TagList plugin on F9 ===
+map <f9> :Tlist<CR>
+
+" === TO_DO & FIX_ME list ===
+command Todo noautocmd vimgrep /TODO\|FIXME/j ** | cw
+
+" === The NERDtree plugin on F8 ===
+map <f8> :NERDTreeToggle<CR>
