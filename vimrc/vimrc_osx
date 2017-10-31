@@ -69,11 +69,9 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 " =================== vundle pluging start ====================
 call vundle#begin()
-Plugin 'VundleVim/Vundle.vim' " the vundleVim manage itself
 
-" hint:
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
+"* The vundle *
+Plugin 'VundleVim/Vundle.vim'
 
 "* The airline plugin *
 Plugin 'vim-airline/vim-airline'
@@ -91,12 +89,12 @@ Plugin 'fatih/vim-go'
 call vundle#end()
 " ==================== vundle pluging end ======================
 
-"filetype plugin indent on " if use this, will enable autoindent
 filetype on
 
 "* The TagBar plugin on F9 *
 nmap <f9> :TagbarToggle<CR>
-let g:tagbar_left=1
+let g:tagbar_left=1 "leftside
+let g:tagbar_width=20 "width=20
 
 "* TO_DO & FIX_ME list *
 command Todo noautocmd vimgrep /TODO\|FIXME/j ** | cw
