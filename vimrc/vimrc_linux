@@ -1,39 +1,39 @@
-" === use dark background ===
+"* use dark background *
 set t_Co=256
 set background=dark
 
-" === enable rower ===
+"* enable rower *
 set cursorline
 
-" === use UTF-8 ===
+"* use UTF-8 *
 set enc=utf8
 set fileencodings=utf-8,cp950
 
-" === marked the keyword ===
+"* marked the keyword *
 set hls
 
-" === in insert mode, disable mouse ===
+"* disable mouse under insert mode*
 set mouse=nv
 
-" === display line number
+"* display line number *
 "set number
 
-" === ignore capital letter while searching ===
+"* ignore capital letter while searching *
 set ic
 
-" === the indent tap ===
+"* the indent tap *
 set tabstop=4
 set shiftwidth=4
 
-" === disable auto-indent
+"* disable auto-indent *
 set noautoindent
 
-" === paste mode setting ===
+"* paste mode setting *
 set pastetoggle=<F12>
 
 syntax on
 
-" === For vim folding ===
+"* vim folding *
 set foldmarker={{{,}}}
 set foldmethod=marker
 set foldlevel=0
@@ -63,55 +63,58 @@ let g:syntastic_check_on_wq = 0
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" === set the runtime path to include Vundle and initialize ===
+"* set the runtime path to include Vundle and initialize *
 set rtp+=~/.vim/bundle/Vundle.vim
 " =================== vundle pluging start ====================
 call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim' " the vundleVim manage itself
+"* The Vundle *
+Plugin 'VundleVim/Vundle.vim'
 
-" hint:
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-
-" === The airline plugin ===
+"* The airline plugin *
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
-" === The NERD tree plugin ===
+"* The NERD tree plugin *
 Plugin 'scrooloose/nerdtree'
 
-" === The taglist ===
-Plugin 'taglist.vim'
+"* The tagbar *
+Plugin 'majutsushi/tagbar'
+
+"* The vim-go *
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 " ==================== vundle pluging end --====================
-" === reopen file type ===
+
 "filetype plugin indent on " if use this, will enable autoindent
 filetype on
 
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just
-" :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to
-" auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+"* The TagBar plugin on F9 *
+nmap <f9> :TagbarToggle<CR>
+let g:tagbar_left=1
 
-" === For airline font ===
-"set laststatus=2
-" === enable powerline-fonts ===
-"let g:airline_powerline_fonts = 1
-
-" === The TagList plugin on F9 ===
-map <f9> :Tlist<CR>
-
-" === TO_DO & FIX_ME list ===
+"* TO_DO & FIX_ME list *
 command Todo noautocmd vimgrep /TODO\|FIXME/j ** | cw
 
-" === The NERDtree plugin on F8 ===
+"* The NERDtree plugin on F8 *
 map <f8> :NERDTreeToggle<CR>
+
+"* Go highlight *
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+"* Go hotkey *
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+
+
+
+
+
+
