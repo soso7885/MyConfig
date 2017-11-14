@@ -102,6 +102,11 @@ command Todo noautocmd vimgrep /TODO\|FIXME/j ** | cw
 "* The NERDtree plugin on F8 *
 map <f8> :NERDTreeToggle<CR>
 
+"* The vim-airline buffer switch hot key *
+nnoremap <C-N> :bn<CR>
+nnoremap <C-P> :bp<CR>
+nnoremap <C-D> :bd<CR>
+
 "* set status line *
 set laststatus=2
 let g:airline_powerline_fonts = 1
