@@ -62,43 +62,73 @@ let g:syntastic_check_on_wq = 0
 " ==================================
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
 "* set the runtime path to include Vundle and initialize *
 set rtp+=~/.vim/bundle/Vundle.vim
-" =================== vundle pluging start ====================
+
+"====================================================================
+" Start vundle
+"====================================================================
 call vundle#begin()
 
 "* The Vundle *
 Plugin 'VundleVim/Vundle.vim'
 
+"===============================================================
+" Write your plugins here
+"===============================================================
+
 "* The airline plugin *
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-
 "* The NERD tree plugin *
 Plugin 'scrooloose/nerdtree'
-
 "* The tagbar *
 Plugin 'majutsushi/tagbar'
-
 "* The vim-go *
 Plugin 'fatih/vim-go'
 
-call vundle#end()
-" ==================== vundle pluging end --====================
+"* The vim ag *
+Plugin 'rking/ag.vim'
 
+Plugin 'tpope/vim-fugitive'
+Plugin 'chazy/cscope_maps'
+Plugin 'wesleyche/SrcExpl'
+" Plugin 'wesleyche/Trinity'
+Plugin 'vim-scripts/taglist.vim'
+
+"===============================================================
+" vundle plugins end
+"===============================================================
+call vundle#end()
 filetype on
+
+"====================================================================
+" Trinity Settings
+"====================================================================
+" Open and close all the three plugins on the same time
+"nmap <F10>  :TrinityToggleAll<CR>
+" Open and close the Source Explorer separately
+"nmap <F11>  :TrinityToggleSourceExplorer<CR>
+" Open and close the Taglist separately
+"nmap <F9> :TrinityToggleTagList<CR>
+" Open and close the NERD Tree separately
+"nmap <F8> :TrinityToggleNERDTree<CR>
 
 "* The TagBar plugin on F9 *
 nmap <f9> :TagbarToggle<CR>
 let g:tagbar_left=1 "leftside
 let g:tagbar_width=25 "width=25
 
-"* TO_DO & FIX_ME list *
-command Todo noautocmd vimgrep /TODO\|FIXME/j ** | cw
-
 "* The NERDtree plugin on F8 *
 map <f8> :NERDTreeToggle<CR>
+let NERDTreeWinPos="right"
+
+" Ag vim "
+let g:ag_prg="ag --vimgrep"
+set runtimepath^=~/.vim/bundle/ag
+
+"* TO_DO & FIX_ME list *
+command Todo noautocmd vimgrep /TODO\|FIXME/j ** | cw
 
 "* Go highlight *
 let g:go_highlight_functions = 1
@@ -106,6 +136,7 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_version_warning = 0
 
 "* Go hotkey *
 au FileType go nmap <leader>r <Plug>(go-run)
@@ -113,8 +144,5 @@ au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
 
-
-
-
-
-
+" To solve vim-8.0 cannot use backspace
+set backspace=indent,eol,start
