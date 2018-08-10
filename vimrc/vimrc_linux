@@ -1,6 +1,9 @@
 "* use dark background *
 set t_Co=256
 set background=dark
+syntax on
+"colorscheme dark_plus
+colorscheme codedark
 
 "* enable rower *
 set cursorline
@@ -31,13 +34,11 @@ set noautoindent
 "* paste mode setting *
 set pastetoggle=<F12>
 
-syntax on
-
 "* for linux kernel suggestion *
 " 80 characters line
-set colorcolumn=81
+"set colorcolumn=81
 "execute "set colorcolumn=" . join(range(81,335), ',')
-highlight ColorColumn ctermbg=Black ctermfg=DarkRed
+"highlight ColorColumn ctermbg=Black ctermfg=DarkRed
 
 "* vim folding *
 set foldmarker={{{,}}}
@@ -50,7 +51,6 @@ set confirm
 set history=100
 
 set statusline=%4*%<\%m%<[%f\%r%h%w]\ [%{&ff},%{&fileencoding},%Y]%=\[Position=%l,%v,%p%%]
-colorscheme torte
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
 set statusline+=%#warningmsg#
@@ -96,19 +96,20 @@ Plugin 'fatih/vim-go'
 Plugin 'rking/ag.vim'
 "* The Gblame"
 Plugin 'tpope/vim-fugitive'
-"* The dracula theme"
-Plugin 'dracula/vim'
-
+"* vscode 
+Plugin 'tomasiser/vim-code-dark'
 Plugin 'chazy/cscope_maps'
 Plugin 'wesleyche/SrcExpl'
 " Plugin 'wesleyche/Trinity'
 Plugin 'vim-scripts/taglist.vim'
-
 "===============================================================
 " vundle plugins end
 "===============================================================
 call vundle#end()
 filetype on
+
+" The airline theme
+let g:airline_theme='deus'
 
 "====================================================================
 " Trinity Settings

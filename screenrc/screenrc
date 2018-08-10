@@ -20,11 +20,14 @@ term xterm-256color
 # Cache 30000 lines for scroll back
 defscrollback 30000
 
+# emulate .logout message
+pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
 
 hardstatus alwayslastline 
 # Very nice tabbed colored hardstatus line
-#hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %H%{KW}|%{KY}%101`%{KW}|%D %M %d %Y%{= Kc} %C%A%{-}'
-hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %H%{KW} |%{KY}%101`%{KW}| %D %M %d %Y%{= Kc} '
+hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %H%{KW}|%{KY}%101`%{KW}|%D %M %d %Y%{= Kc} %C%A%{-}'
+#hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %H%{KW} |%{KY}%101`%{KW}| %D %M %d %Y%{= Kc} '
+#hardstatus string '%{gk}[ %{G}%H %{g}][%= %{wk}%?%-Lw%?%{=b kR} (%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{g}][%{Y}%l%{g}] %{=b C}[ %m/%d %c ]%{W}'
 
 # Start message
 startup_message off
@@ -33,7 +36,7 @@ startup_message off
 altscreen on
 
 # Dynamic title
-shelltitle '$ |bash'
+shelltitle 'workspace'
 
 # Disable vbell
 vbell off
@@ -42,3 +45,5 @@ vbell off
 bind f eval "hardstatus ignore"
 # Show hardstatus: ctrl-a F
 bind F eval "hardstatus alwayslastline"
+
+
