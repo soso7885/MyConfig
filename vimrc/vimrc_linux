@@ -19,7 +19,8 @@ set hls
 set mouse=nv
 
 "* display line number *
-"set number
+set number
+set relativenumber
 
 "* ignore capital letter while searching *
 set ic
@@ -163,3 +164,7 @@ if has("autocmd")
     \   exe "normal g'\"" |
     \ endif
 endif
+
+highlight ExtraWhitespace ctermbg=darkred guibg=darkcyan
+autocmd BufEnter * if &ft != 'help' | match ExtraWhitespace /\s\+$/ | endif
+autocmd BufEnter * if &ft == 'help' | match none /\s\+$/ | endif

@@ -1,11 +1,5 @@
 " Vim Code Dark (color scheme)
 " https://github.com/tomasiser/vim-code-dark
-" Put this file into ~/.vim/colors
-" and set .vimrc 
-"		set t_Co=256
-"		set background=dark
-"		syntax on
-"		colorscheme codedark
 
 scriptencoding utf-8
 
@@ -107,6 +101,8 @@ let s:cdDiffGreenLight = {'gui': '#4B5632', 'cterm': s:cterm09, 'cterm256': '58'
 
 let s:cdSearchCurrent = {'gui': '#49545F', 'cterm': s:cterm09, 'cterm256': '239'}
 let s:cdSearch = {'gui': '#4C4E50', 'cterm': s:cterm0A, 'cterm256': '11'}
+let s:cdPurple = {'gui': '#4C4E50', 'cterm': s:cterm0A, 'cterm256': '129'}
+let s:cdLightPurple = {'gui': '#4C4E50', 'cterm': s:cterm0A, 'cterm256': '141'}
 
 " Syntax colors:
 
@@ -165,8 +161,6 @@ call <sid>hi('PmenuSbar', {}, s:cdPopupHighlightGray, 'none', {})
 call <sid>hi('PmenuThumb', {}, s:cdPopupFront, 'none', {})
 call <sid>hi('Question', s:cdBlue, s:cdBack, 'none', {})
 call <sid>hi('Search', s:cdRed, s:cdSearch, 'none', {})
-"hi Search ctermbg=LightYellow
-"hi Search ctermfg=Red
 call <sid>hi('SpecialKey', s:cdBlue, s:cdNone, 'none', {})
 call <sid>hi('SpellBad', s:cdNone, s:cdNone, 'undercurl', {})
 call <sid>hi('SpellCap', s:cdNone, s:cdNone, 'undercurl', {})
@@ -199,6 +193,7 @@ call <sid>hi('Conditional', s:cdPink, {}, 'none', {})
 call <sid>hi('Repeat', s:cdPink, {}, 'none', {})
 call <sid>hi('Label', s:cdPink, {}, 'none', {})
 call <sid>hi('Operator', s:cdFront, {}, 'none', {})
+
 call <sid>hi('Keyword', s:cdPink, {}, 'none', {})
 call <sid>hi('pythonOperator', s:cdPink, {}, 'none', {})
 call <sid>hi('Exception', s:cdPink, {}, 'none', {})
@@ -215,7 +210,7 @@ call <sid>hi('Structure', s:cdBlue, {}, 'none', {})
 call <sid>hi('Typedef', s:cdBlue, {}, 'none', {})
 
 call <sid>hi('Special', s:cdFront, {}, 'none', {})
-call <sid>hi('SpecialChar', s:cdFront, {}, 'none', {})
+call <sid>hi('SpecialChar', s:cdLightPurple, {}, 'none', {})
 call <sid>hi('Tag', s:cdFront, {}, 'none', {})
 call <sid>hi('Delimiter', s:cdFront, {}, 'none', {})
 call <sid>hi('SpecialComment', s:cdGreen, {}, 'none', {})
