@@ -1,0 +1,29 @@
+"* The airline plugin *
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+"* The NERD tree plugin *
+Plugin 'scrooloose/nerdtree'
+
+"* The tagbar *
+Plugin 'majutsushi/tagbar'
+
+"* The golang *
+Plugin 'fatih/vim-go'
+
+"* The vim ag *
+Plugin 'rking/ag.vim'
+
+"* The Gblame"
+Plugin 'tpope/vim-fugitive'
+
+"* The vim-note"
+Plugin 'xolox/vim-notes'
+Plugin 'xolox/vim-misc'
+
+"* vscode
+Plugin 'tomasiser/vim-code-dark'
+Plugin 'chazy/cscope_maps'
+Plugin 'wesleyche/SrcExpl'
+Plugin 'vim-scripts/taglist.vim'
+

@@ -26,8 +26,8 @@ set relativenumber
 set ic
 
 "* the indent tap *
-set tabstop=4
-set shiftwidth=4
+set tabstop=8
+set shiftwidth=8
 
 "* disable auto-indent *
 set noautoindent
@@ -37,16 +37,16 @@ set pastetoggle=<F12>
 
 "* for linux kernel suggestion *
 " 80 characters line
-"set colorcolumn=81
-"execute "set colorcolumn=" . join(range(81,335), ',')
-"highlight ColorColumn ctermbg=Black ctermfg=DarkRed
+set colorcolumn=81
+execute "set colorcolumn=" . join(range(81,335), ',')
+highlight ColorColumn ctermbg=Black ctermfg=DarkRed
 
 "* vim folding *
 set foldmarker={{{,}}}
 set foldmethod=marker
 set foldlevel=0
-let php_folding = 1 
-set foldnestmax=3 
+let php_folding=1
+set foldnestmax=3
 
 set confirm
 set history=100
@@ -83,26 +83,8 @@ Plugin 'VundleVim/Vundle.vim'
 "===============================================================
 " Write your plugins here
 "===============================================================
+source ~/.vundlerc
 
-"* The airline plugin *
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-"* The NERD tree plugin *
-Plugin 'scrooloose/nerdtree'
-"* The tagbar *
-Plugin 'majutsushi/tagbar'
-"* The golang *
-Plugin 'fatih/vim-go'
-"* The vim ag *
-Plugin 'rking/ag.vim'
-"* The Gblame"
-Plugin 'tpope/vim-fugitive'
-"* vscode 
-Plugin 'tomasiser/vim-code-dark'
-Plugin 'chazy/cscope_maps'
-Plugin 'wesleyche/SrcExpl'
-" Plugin 'wesleyche/Trinity'
-Plugin 'vim-scripts/taglist.vim'
 "===============================================================
 " vundle plugins end
 "===============================================================
@@ -111,18 +93,6 @@ filetype on
 
 " The airline theme
 let g:airline_theme='deus'
-
-"====================================================================
-" Trinity Settings
-"====================================================================
-" Open and close all the three plugins on the same time
-"nmap <F10>  :TrinityToggleAll<CR>
-" Open and close the Source Explorer separately
-"nmap <F11>  :TrinityToggleSourceExplorer<CR>
-" Open and close the Taglist separately
-"nmap <F9> :TrinityToggleTagList<CR>
-" Open and close the NERD Tree separately
-"nmap <F8> :TrinityToggleNERDTree<CR>
 
 "* The TagBar plugin on F9 *
 nmap <f9> :TagbarToggle<CR>
@@ -168,3 +138,9 @@ endif
 highlight ExtraWhitespace ctermbg=darkred guibg=darkcyan
 autocmd BufEnter * if &ft != 'help' | match ExtraWhitespace /\s\+$/ | endif
 autocmd BufEnter * if &ft == 'help' | match none /\s\+$/ | endif
+
+" vim-note
+filetype plugin on
+let g:notes_directories = ['~/Documents/Notes']
+let g:notes_suffix = '.txt'
+let g:notes_word_boundaries = 1
